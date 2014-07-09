@@ -1,0 +1,193 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x00007fff91b73732, pid=1760, tid=6403
+#
+# JRE version: Java(TM) SE Runtime Environment (8.0_05-b13) (build 1.8.0_05-b13)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.5-b02 mixed mode bsd-amd64 compressed oops)
+# Problematic frame:
+# C  [libsystem_c.dylib+0x1732]  strlen+0x12
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f7fda813000):  JavaThread "main" [_thread_in_vm, id=6403, stack(0x0000000108a4b000,0x0000000108b4b000)]
+
+siginfo:si_signo=SIGSEGV: si_errno=0, si_code=1 (SEGV_MAPERR), si_addr=0x0000000100000000
+
+Registers:
+RAX=0x00000000ffffffff, RBX=0x0000000108b4a122, RCX=0x0000000100000000, RDX=0x0000000100000000
+RSP=0x0000000108b495a0, RBP=0x0000000108b495a0, RSI=0x00007fff91bf68d0, RDI=0x0000000100000000
+R8 =0x0000000108b49548, R9 =0x00007fff91bf68d0, R10=0x00007fff91bbb2a8, R11=0x0000000000000000
+R12=0x00007fff91bf68d0, R13=0x0000000000000073, R14=0x0000000000000000, R15=0x0000000108b49e08
+RIP=0x00007fff91b73732, EFLAGS=0x0000000000010206, ERR=0x0000000000000004
+  TRAPNO=0x000000000000000e
+
+Top of Stack: (sp=0x0000000108b495a0)
+0x0000000108b495a0:   0000000108b499d0 00007fff91bbadcb
+0x0000000108b495b0:   000000010a451800 0000000023d02f30
+0x0000000108b495c0:   0000000000000004 0000000023da2970
+0x0000000108b495d0:   ffffffff23dcf9c8 0000000023d02ef0
+0x0000000108b495e0:   000000010a451800 0000000000000000
+0x0000000108b495f0:   0000000000000000 0000000123d02f50
+0x0000000108b49600:   0000000108b49a00 0000000108b49618
+0x0000000108b49610:   0000000108b49bb0 0000000123d02e50
+0x0000000108b49620:   0000000023d48e48 0000000023c90cc0
+0x0000000108b49630:   0000000000000001 0000000000000001
+0x0000000108b49640:   0000000108b4a11e 0000000000000001
+0x0000000108b49650:   00007fff91bf84b9 0000000000000000
+0x0000000108b49660:   0000000108b496c0 0000000000000001
+0x0000000108b49670:   0000000000000000 0000000000000001
+0x0000000108b49680:   0000000e00000001 0000000000000001
+0x0000000108b49690:   0000000000000001 000000010a18625b
+0x0000000108b496a0:   0000000108b4a110 0000000108b49e08
+0x0000000108b496b0:   000000010000000e 0000000000000006
+0x0000000108b496c0:   0000000100000005 00007fff91bba5f9
+0x0000000108b496d0:   0000000100000000 ffffffffffffffff
+0x0000000108b496e0:   0000000100000000 0000000000000000
+0x0000000108b496f0:   00007fff7c756940 0000206023c8def8
+0x0000000108b49700:   0000003000000030 0000000108b49e48
+0x0000000108b49710:   0000000108b49d50 0000002823cf7010
+0x0000000108b49720:   0000000100000000 0000000000000000
+0x0000000108b49730:   0000000108b498d8 0000000023d4f7d8
+0x0000000108b49740:   000000006f09e5f1 00000000fffffff5
+0x0000000108b49750:   000000000a18624b 0000000000000001
+0x0000000108b49760:   0000000191bf68d0 0000000000000001
+0x0000000108b49770:   0000000100000000 0000000000000000
+0x0000000108b49780:   00000007c0002368 0000000000000001
+0x0000000108b49790:   00007f7fda4126d0 0000000000000001 
+
+Instructions: (pc=0x00007fff91b73732)
+0x00007fff91b73712:   0e 01 f3 0f 7f 44 0f 01 5d c3 90 90 90 90 55 48
+0x00007fff91b73722:   89 e5 48 89 f9 48 89 fa 48 83 e7 f0 66 0f ef c0
+0x00007fff91b73732:   66 0f 74 07 66 0f d7 f0 48 83 e1 0f 48 83 c8 ff
+0x00007fff91b73742:   48 d3 e0 21 c6 74 17 0f bc c6 48 29 d7 48 01 f8 
+
+Register to memory mapping:
+
+RAX=0x00000000ffffffff is an unknown value
+RBX=0x0000000108b4a122 is pointing into the stack for thread: 0x00007f7fda813000
+RCX=0x0000000100000000 is an unknown value
+RDX=0x0000000100000000 is an unknown value
+RSP=0x0000000108b495a0 is pointing into the stack for thread: 0x00007f7fda813000
+RBP=0x0000000108b495a0 is pointing into the stack for thread: 0x00007f7fda813000
+RSI=0x00007fff91bf68d0: __vfprintf.xdigs_upper+0 in /usr/lib/system/libsystem_c.dylib at 0x00007fff91b72000
+RDI=0x0000000100000000 is an unknown value
+R8 =0x0000000108b49548 is pointing into the stack for thread: 0x00007f7fda813000
+R9 =0x00007fff91bf68d0: __vfprintf.xdigs_upper+0 in /usr/lib/system/libsystem_c.dylib at 0x00007fff91b72000
+R10=0x00007fff91bbb2a8: __vfprintf+0x4705 in /usr/lib/system/libsystem_c.dylib at 0x00007fff91b72000
+R11=0x0000000000000000 is an unknown value
+R12=0x00007fff91bf68d0: __vfprintf.xdigs_upper+0 in /usr/lib/system/libsystem_c.dylib at 0x00007fff91b72000
+R13=0x0000000000000073 is an unknown value
+R14=0x0000000000000000 is an unknown value
+R15=0x0000000108b49e08 is pointing into the stack for thread: 0x00007f7fda813000
+
+
+Stack: [0x0000000108a4b000,0x0000000108b4b000],  sp=0x0000000108b495a0,  free space=1017k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libsystem_c.dylib+0x1732]  strlen+0x12
+C  [libsystem_c.dylib+0x48dcb]  __vfprintf+0x4228
+C  [libsystem_c.dylib+0x6d2db]  __v2printf+0x1d7
+C  [libsystem_c.dylib+0x52f67]  _vsnprintf+0x26f
+C  [libsystem_c.dylib+0x5301c]  vsnprintf+0x50
+V  [libjvm.dylib+0x1dd43f]  StringEventLog::logv(Thread*, char const*, __va_list_tag*)+0xc7
+V  [libjvm.dylib+0x1dd4f1]  Events::log(Thread*, char const*, ...)+0x97
+V  [libjvm.dylib+0x226917]  EventMark::EventMark(char const*, ...)+0xad
+V  [libjvm.dylib+0x17bbe1]  ClassLoader::load_classfile(Symbol*, Thread*)+0x65
+V  [libjvm.dylib+0x4f0113]  SystemDictionary::load_instance_class(Symbol*, Handle, Thread*)+0xfb
+V  [libjvm.dylib+0x4ef9eb]  SystemDictionary::resolve_instance_class_or_null(Symbol*, Handle, Handle, Thread*)+0x48f
+V  [libjvm.dylib+0x4f0514]  SystemDictionary::resolve_or_null(Symbol*, Handle, Handle, Thread*)+0x106
+V  [libjvm.dylib+0x31c8ae]  JVM_FindClassFromBootLoader+0x74
+C  [libjava.dylib+0x1f75]  Java_java_lang_ClassLoader_findBootstrapClass+0xb5
+j  java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.findBootstrapClassOrNull(Ljava/lang/String;)Ljava/lang/Class;+12
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+48
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+38
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+36
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+j  sun.launcher.LauncherHelper.checkAndLoadMain(ZILjava/lang/String;)Ljava/lang/Class;+93
+v  ~StubRoutines::call_stub
+V  [libjvm.dylib+0x2c5186]  JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*)+0x6ae
+V  [libjvm.dylib+0x2f9c4a]  jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, Thread*)+0x1bf
+V  [libjvm.dylib+0x2f0872]  jni_CallStaticObjectMethod+0x15d
+C  [java+0x2ae6]  JavaMain+0x7f5
+C  [libsystem_pthread.dylib+0x1899]  _pthread_body+0x8a
+C  [libsystem_pthread.dylib+0x172a]  _pthread_struct_init+0x0
+C  [libsystem_pthread.dylib+0x5fc9]  thread_start+0xd
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  java.lang.ClassLoader.findBootstrapClass(Ljava/lang/String;)Ljava/lang/Class;+0
+j  java.lang.ClassLoader.findBootstrapClassOrNull(Ljava/lang/String;)Ljava/lang/Class;+12
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+48
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+38
+j  sun.misc.Launcher$AppClassLoader.loadClass(Ljava/lang/String;Z)Ljava/lang/Class;+36
+j  java.lang.ClassLoader.loadClass(Ljava/lang/String;)Ljava/lang/Class;+3
+j  sun.launcher.LauncherHelper.checkAndLoadMain(ZILjava/lang/String;)Ljava/lang/Class;+93
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f7fdb002000 JavaThread "Service Thread" daemon [_thread_blocked, id=22275, stack(0x0000000126c94000,0x0000000126d94000)]
+  0x00007f7fdd002800 JavaThread "C1 CompilerThread3" daemon [_thread_blocked, id=21763, stack(0x0000000126b91000,0x0000000126c91000)]
+  0x00007f7fdd000000 JavaThread "C2 CompilerThread2" daemon [_thread_blocked, id=21251, stack(0x0000000126a8e000,0x0000000126b8e000)]
+  0x00007f7fdc029000 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=20739, stack(0x000000012698b000,0x0000000126a8b000)]
+  0x00007f7fdc01c800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=20227, stack(0x0000000126888000,0x0000000126988000)]
+  0x00007f7fdc01c000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=19715, stack(0x0000000126785000,0x0000000126885000)]
+  0x00007f7fdb801000 JavaThread "Finalizer" daemon [_thread_blocked, id=14595, stack(0x0000000126541000,0x0000000126641000)]
+  0x00007f7fda875000 JavaThread "Reference Handler" daemon [_thread_blocked, id=14083, stack(0x000000012643e000,0x000000012653e000)]
+=>0x00007f7fda813000 JavaThread "main" [_thread_in_vm, id=6403, stack(0x0000000108a4b000,0x0000000108b4b000)]
+
+Other Threads:
+  0x00007f7fda870800 VMThread [stack: 0x000000012633b000,0x000000012643b000] [id=13571]
+  0x00007f7fdd01d000 WatcherThread [stack: 0x0000000126d97000,0x0000000126e97000] [id=22787]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ PSYoungGen      total 1024K, used 398K [0x000000076ab00000, 0x000000076ac80000, 0x00000007c0000000)
+  eden space 512K, 77% used [0x000000076ab00000,0x000000076ab63ac8,0x000000076ab80000)
+  from space 512K, 0% used [0x000000076ac00000,0x000000076ac00000,0x000000076ac80000)
+  to   space 512K, 0% used [0x000000076ab80000,0x000000076ab80000,0x000000076ac00000)
+ ParOldGen       total 260608K, used 0K [0x00000006c0000000, 0x00000006cfe80000, 0x000000076ab00000)
+  object space 260608K, 0% used [0x00000006c0000000,0x00000006c0000000,0x00000006cfe80000)
+ Metaspace       used 2158K, capacity 4480K, committed 4480K, reserved 1056768K
+  class space    used 235K, capacity 384K, committed 384K, reserved 1048576K
+
+Card table byte_map: [0x0000000119e80000,0x000000011a681000] byte_map_base: 0x0000000116880000
+
+Marking Bits: (ParMarkBitMap*) 0x000000010a4660a0
+ Begin Bits: [0x000000011b3ef000, 0x000000011f3ef000)
+ End Bits:   [0x000000011f3ef000, 0x00000001233ef000)
+
+Polling page: 0x0000000108b8f000
+
+CodeCache: size=245760Kb used=1056Kb max_used=1066Kb free=244703Kb
+ bounds [0x000000010aac0000, 0x000000010ad30000, 0x0000000119ac0000]
+ total_blobs=219 nmethods=4 adapters=132
+ compilation: enabled
+
+Compilation events (5 events):
+Event: 0.052 Thread 0x00007f7fdd002800    1       3       java.lang.String::hashCode (55 bytes)
+Event: 0.053 Thread 0x00007f7fdd002800 nmethod 1 0x000000010abbeb50 code [0x000000010abbecc0, 0x000000010abbef50]
+Event: 0.053 Thread 0x00007f7fdd002800    2       3       java.lang.String::charAt (29 bytes)
+Event: 0.053 Thread 0x00007f7fdd002800 nmethod 2 0x000000010abbe5d0 code [0x000000010abbe740, 0x000000010abbe9a8]
+Event: 0.053 Thread 0x00007f7fdd002800    3       3       java.lang.Object::<init> (1 bytes)
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (2 events):
+Event: 0.028 Thread 0x00007f7fda813000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.defineClass(Ljava/lang/String;[BII)Ljava/lang/Class; name or signature does not match> (0x000000076ab14a80) thrown at [/HUDSON/workspace/8-2-build-macosx-x86_64/jdk8u5/2488/hotspot/src/sha
+Event: 0.028 Thread 0x00007f7fda813000 Exception <a 'java/lang/NoSuchMethodError': Method sun.misc.Unsafe.prefetchRead(Ljava/lang/Object;J)V name or signature does not match> (0x000000076ab14d10) thrown at [/HUDSON/workspace/8-2-build-macosx-x86_64/jdk8u5/2488/hotspot/src/share/vm/prims/jni.cp
+
