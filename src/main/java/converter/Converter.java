@@ -22,10 +22,10 @@ public class Converter
 
     private void convert()
     {
-        log_.info("Converting");
         try
         {
             String path = "/Users/dmitry/Downloads/fb2.Flibusta.Net/d.fb2-172703-173908";
+            log_.info("Converting with path: {}", path);
             Files.walk(Paths.get(path)).forEach(filePath -> {
                 if (Files.isRegularFile(filePath) && filePath.toString().endsWith(".fb2"))
                 {
@@ -46,28 +46,40 @@ public class Converter
 //        log_.info("Converting {}", filePath);
         try
         {
+            // determine encoding
             BufferedReader reader = new BufferedReader(new FileReader(filePath.toFile()));
             String line = reader.readLine();
-//            log_.info("XML: " + xmlLine);
-
             int from = line.indexOf("encoding") + "encoding=".length() + 1;
             int to = line.indexOf("\"", from);
             String encoding = line.substring(from, to);
-
             reader.close();
 
+            // read it now
             reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath.toFile()), encoding));
-
-            String bookTitle = "";
+            String bookTitle = null;
             while ((line = reader.readLine()) != null)
             {
-                String trimmedLine = line.trim();
-                if (trimmedLine.startsWith("<book-title"))
+                if (bookTitle == null)
                 {
-                    bookTitle = trimmedLine.substring("<book-title>".length(), trimmedLine.indexOf("</"));
+                    bookTitle = findTagValue(line, "book-title");
                 }
             }
-            log_.info(bookTitle);
+
+            if (bookTitle == null)
+            {
+                log_.info(filePath.toFile().getName());
+
+//                reader = new BufferedReader(new InputStreamReader(new FileInputStream(filePath.toFile()), encoding));
+//                while ((line = reader.readLine()) != null)
+//                {
+//                    String trimmedLine = line.trim();
+//                    if (trimmedLine.length() < 1000 && !trimmedLine.startsWith("<p>"))
+//                    {
+//                        log_.info("{}", trimmedLine);
+//                    }
+//                }
+//                System.exit(0);
+            }
         }
         catch (UnsupportedEncodingException uee)
         {
@@ -77,6 +89,27 @@ public class Converter
         {
             e.printStackTrace();
         }
+    }
+
+    private String findTagValue(String line, String tag)
+    {
+        String fullTag = "<" + tag + ">";
+        int index = line.indexOf(fullTag);
+
+        if (index < 0)
+        {
+            return null;
+        }
+
+        int beginIndex = index + fullTag.length();
+        int endIndex = line.indexOf("</", beginIndex);
+        if (endIndex < 0)
+        {
+            log_.info("No terminating </");
+            return null;
+        }
+
+        return line.substring(beginIndex, endIndex);
     }
 
     public static void main(String[] args)
